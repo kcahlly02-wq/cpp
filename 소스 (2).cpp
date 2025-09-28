@@ -200,23 +200,24 @@ int main() {
 }// protected랑 private는 차이점이?
  // protected는 자식 클래스에서 접근 가능, private는 자식 클래스에서 접근 불가
 */
-class Animal {
+/*
+class Animal { // 부모 클래스
 public:
-	virtual void speak() {  
-		cout << "동물이 소리를 냅니다." << endl;
+	virtual void speak() {  // virtual - 가상 함수 선언 
+		cout << "동물이 소리를 냅니다." << endl; 
 	}
 };
 
-class Dog : public Animal {
+class Dog : public Animal { // 자식 클래스
 public:
-	void speak() override {
+	void speak() override { //  override - 부모의 virtual 함수를 재정의
 		cout << "멍멍!" << endl;
 	}
 };
 
 class Cat : public Animal {
 public:
-	void speak() override {
+	void speak() override { //  override - 부모의 virtual 함수를 재정의
 		cout << "야옹!" << endl;
 	}
 };
@@ -227,32 +228,32 @@ int main() {
 	Dog a2;
 	Cat a3;
 
-	a1.speak();
-	a2.speak();
-	a3.speak();
+	a1.speak(); // Animal speak() 호출 - "동물이 소리를 냅니다."
+	a2.speak(); // Dog speak() 호출 - "멍멍!"
+	a3.speak(); // Cat speak() 호출 - "야옹!"
 
 	return 0;
 }
-// Cat Dog 
+*/
 // Animal a = b;
 /*
 class Animal {
 public:
-	virtual void speak() {  // 가상 함수로 선언
+	virtual void speak() {  // virtual - 가상 함수 선언 
 		cout << "동물이 소리를 냅니다." << endl;
 	}
 };
 
 class Dog : public Animal {
 public:
-	void speak() override {
+	void speak() override { //  override - 부모의 virtual 함수를 재정의
 		cout << "멍멍!" << endl;
 	}
 };
 
 class Cat : public Animal {
 public:
-	void speak() override {
+	void speak() override { //  override - 부모의 virtual 함수를 재정의
 		cout << "야옹!" << endl;
 	}
 };
@@ -263,12 +264,12 @@ int main() {
 	Dog a2;
 	Cat a3;
 
-	a1.speak();
-	a2.speak();
-	a3.speak();
+	a1.speak(); // Animal speak() 호출 - "동물이 소리를 냅니다."
+	a2.speak(); // Dog speak() 호출 - "멍멍!"
+	a3.speak(); // Cat speak() 호출 - "야옹!"
 
 	Dog b;
-	Animal a = b;   // 객체 슬라이싱 발생!
+	Animal a = b;   // a는 Animal 객체, b는 Dog 타입의 객체 
 
 	a.speak();  // Animal의 speak() 호출됨
 	b.speak();  // Dog의 speak() 호출됨
