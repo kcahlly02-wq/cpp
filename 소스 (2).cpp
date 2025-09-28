@@ -14,15 +14,15 @@ protected:
 class Derived1: private Base{
 public:
 	void print() {
-		//cout << a; // private ¸â¹ö Á¢±Ù ºÒ°¡
+		//cout << a; // private ë©¤ë²„ ì ‘ê·¼ ë¶ˆê°€
 		cout << b << endl; 
 		cout << c << endl;
-	}¤º
+	}ã…Š
 };
 class Derived2: protected Base{
 public:
 	void print() {
-		//cout << a; // private Á¢±Ù ºÒ°¡
+		//cout << a; // private ì ‘ê·¼ ë¶ˆê°€
 		cout << b << endl;
 		cout << c << endl;
 	}
@@ -30,7 +30,7 @@ public:
 class Derived3: public Base {
 public:
 	void print() {
-		//cout << a; // private Á¢±Ù ºÒ°¡
+		//cout << a; // private ì ‘ê·¼ ë¶ˆê°€
 		cout << b << endl;
 		cout << c << endl;
 	}
@@ -43,7 +43,7 @@ int main()
 	Derived3 d3;
 	d1.print();
 	d2.print();
-	d3.print(); //2 3 2 3 2 3 Ãâ·Â
+	d3.print(); //2 3 2 3 2 3 ì¶œë ¥
 	return 0;
 }*/
 /*
@@ -60,11 +60,11 @@ public:
 	}
 private:
 	void introduce() {
-		cout << "ÀÌ¸§: " << name << ", ³ªÀÌ: " << age << endl;
+		cout << "ì´ë¦„: " << name << ", ë‚˜ì´: " << age << endl;
 	}
 };
 
-// ÀÚ½Ä Å¬·¡½º (ÆÄ»ý Å¬·¡½º)
+// ìžì‹ í´ëž˜ìŠ¤ (íŒŒìƒ í´ëž˜ìŠ¤)
 class Student : public Person {
 private:
 	string major;
@@ -73,14 +73,14 @@ public:
 	Student(string n, int a, string m) : Person(n, a), major(m) {}
 
 	void study() {
-		cout << name << " ÇÐ»ýÀÌ " << major << " Àü°ø °øºÎ ÁßÀÔ´Ï´Ù." << endl;
+		cout << name << " í•™ìƒì´ " << major << " ì „ê³µ ê³µë¶€ ì¤‘ìž…ë‹ˆë‹¤." << endl;
 	}
 };
 
 int main() {
-	Student s("È«±æµ¿", 21, "ÄÄÇ»ÅÍ°øÇÐ");
-	s.show();   // ºÎ¸ð Å¬·¡½º ÇÔ¼ö »ç¿ë, Ãâ·Â :ÀÌ¸§: È«±æµ¿, ³ªÀÌ: 21
-	s.study();       // ÀÚ½Ä Å¬·¡½º ÇÔ¼ö »ç¿ë, Ãâ·Â : È«±æµ¿ ÇÐ»ýÀÌ ÄÄÇ»ÅÍ°øÇÐ Àü°ø °øºÎ ÁßÀÔ´Ï´Ù.
+	Student s("í™ê¸¸ë™", 21, "ì»´í“¨í„°ê³µí•™");
+	s.show();   // ë¶€ëª¨ í´ëž˜ìŠ¤ í•¨ìˆ˜ ì‚¬ìš©, ì¶œë ¥ :ì´ë¦„: í™ê¸¸ë™, ë‚˜ì´: 21
+	s.study();       // ìžì‹ í´ëž˜ìŠ¤ í•¨ìˆ˜ ì‚¬ìš©, ì¶œë ¥ : í™ê¸¸ë™ í•™ìƒì´ ì»´í“¨í„°ê³µí•™ ì „ê³µ ê³µë¶€ ì¤‘ìž…ë‹ˆë‹¤.
 	return 0;
 }
 */
@@ -96,35 +96,35 @@ public:
 
 protected:
 	void introduce() {
-		cout << "ÀÌ¸§: " << name << ", ³ªÀÌ: " << age << endl;
+		cout << "ì´ë¦„: " << name << ", ë‚˜ì´: " << age << endl;
 	}
 };
 
-// ÀÚ½Ä Å¬·¡½º (ÆÄ»ý Å¬·¡½º)
+// ìžì‹ í´ëž˜ìŠ¤ (íŒŒìƒ í´ëž˜ìŠ¤)
 class Student : public Person {
 private:
 	string major;
 
 public:
 	Student(string n, int a, string m) : Person(n, a), major(m) {}
-	void show() { // ºÎ¸ð Å¬·¡½ºÀÇ protected ¸â¹ö ÇÔ¼ö Á¢±Ù, introduce()ÀÇ Á¢±ÙÁöÁ¤ÀÚ°¡ protected¶ó ºÎ¸ð Å¬·¡½º»Ó¸¸ ¾Æ´Ï¶ó ÀÚ½Ä Å¬·¡½º¿¡¼­µµ Á¢±Ù °¡´É
+	void show() { // ë¶€ëª¨ í´ëž˜ìŠ¤ì˜ protected ë©¤ë²„ í•¨ìˆ˜ ì ‘ê·¼, introduce()ì˜ ì ‘ê·¼ì§€ì •ìžê°€ protectedë¼ ë¶€ëª¨ í´ëž˜ìŠ¤ë¿ë§Œ ì•„ë‹ˆë¼ ìžì‹ í´ëž˜ìŠ¤ì—ì„œë„ ì ‘ê·¼ ê°€ëŠ¥
 		introduce();
 	}
 
 	void study() {
-		cout << name << " ÇÐ»ýÀÌ " << major << " Àü°ø °øºÎ ÁßÀÔ´Ï´Ù." << endl;
+		cout << name << " í•™ìƒì´ " << major << " ì „ê³µ ê³µë¶€ ì¤‘ìž…ë‹ˆë‹¤." << endl;
 	}
 };
 
 int main() {
-	Student s("È«±æµ¿", 21, "ÄÄÇ»ÅÍ°øÇÐ");
-	s.show();   // ºÎ¸ð Å¬·¡½º ÇÔ¼ö »ç¿ë
-	s.study();       // ÀÚ½Ä Å¬·¡½º ÇÔ¼ö »ç¿ë
+	Student s("í™ê¸¸ë™", 21, "ì»´í“¨í„°ê³µí•™");
+	s.show();   // ë¶€ëª¨ í´ëž˜ìŠ¤ í•¨ìˆ˜ ì‚¬ìš©
+	s.study();       // ìžì‹ í´ëž˜ìŠ¤ í•¨ìˆ˜ ì‚¬ìš©
 	return 0;
 }
 */
 /*
-//ÀÚ½Ä Å¬·¡½º Á¢±Ù ÁöÁ¤ÀÚ public¿¡¼­ private·Î ¹Ù²Ù±â
+//ìžì‹ í´ëž˜ìŠ¤ ì ‘ê·¼ ì§€ì •ìž publicì—ì„œ privateë¡œ ë°”ê¾¸ê¸°
 class Person {
 protected:
 	string name;
@@ -134,35 +134,35 @@ public:
 	Person(string n, int a) : name(n), age(a) {}
 
 	void introduce() {
-		cout << "ÀÌ¸§: " << name << ", ³ªÀÌ: " << age << endl;
+		cout << "ì´ë¦„: " << name << ", ë‚˜ì´: " << age << endl;
 	}
 };
 
-// ÀÚ½Ä Å¬·¡½º (ÆÄ»ý Å¬·¡½º)
-class Student : private Person {   //ÀÚ½Ä Å¬·¡½º Á¢±Ù ÁöÁ¤ÀÚ public¿¡¼­ private·Î ¹Ù²Ù±â
+// ìžì‹ í´ëž˜ìŠ¤ (íŒŒìƒ í´ëž˜ìŠ¤)
+class Student : private Person {   //ìžì‹ í´ëž˜ìŠ¤ ì ‘ê·¼ ì§€ì •ìž publicì—ì„œ privateë¡œ ë°”ê¾¸ê¸°
 private:
 	string major;
 
 public:
 	Student(string n, int a, string m) : Person(n, a), major(m) {}
 	
-	void show() { // ºÎ¸ð Å¬·¡½ºÀÇ public ¸â¹ö ÇÔ¼ö Á¢±Ù
+	void show() { // ë¶€ëª¨ í´ëž˜ìŠ¤ì˜ public ë©¤ë²„ í•¨ìˆ˜ ì ‘ê·¼
 		introduce();
 	}
 	void study() {
-		cout << name << " ÇÐ»ýÀÌ " << major << " Àü°ø °øºÎ ÁßÀÔ´Ï´Ù." << endl;
+		cout << name << " í•™ìƒì´ " << major << " ì „ê³µ ê³µë¶€ ì¤‘ìž…ë‹ˆë‹¤." << endl;
 	}
 };
 
 int main() {
-	Student s("È«±æµ¿", 21, "ÄÄÇ»ÅÍ°øÇÐ");
-	s.show();   // ºÎ¸ð Å¬·¡½º ÇÔ¼ö »ç¿ë
-	s.study();       // ÀÚ½Ä Å¬·¡½º ÇÔ¼ö »ç¿ë
+	Student s("í™ê¸¸ë™", 21, "ì»´í“¨í„°ê³µí•™");
+	s.show();   // ë¶€ëª¨ í´ëž˜ìŠ¤ í•¨ìˆ˜ ì‚¬ìš©
+	s.study();       // ìžì‹ í´ëž˜ìŠ¤ í•¨ìˆ˜ ì‚¬ìš©
 	return 0;
 }*/
 
 /*
-//ÀÚ½Ä Å¬·¡½º Á¢±Ù ÁöÁ¤ÀÚ public¿¡¼­ protected·Î ¹Ù²Ù±â
+//ìžì‹ í´ëž˜ìŠ¤ ì ‘ê·¼ ì§€ì •ìž publicì—ì„œ protectedë¡œ ë°”ê¾¸ê¸°
 class Person {
 protected:
 	string name;
@@ -172,53 +172,53 @@ public:
 	Person(string n, int a) : name(n), age(a) {}
 
 	void introduce() {
-		cout << "ÀÌ¸§: " << name << ", ³ªÀÌ: " << age << endl;
+		cout << "ì´ë¦„: " << name << ", ë‚˜ì´: " << age << endl;
 	}
 };
 
-// ÀÚ½Ä Å¬·¡½º (ÆÄ»ý Å¬·¡½º)
-class Student : protected Person {   //ÀÚ½Ä Å¬·¡½º Á¢±Ù ÁöÁ¤ÀÚ public¿¡¼­ private·Î ¹Ù²Ù±â
+// ìžì‹ í´ëž˜ìŠ¤ (íŒŒìƒ í´ëž˜ìŠ¤)
+class Student : protected Person {   //ìžì‹ í´ëž˜ìŠ¤ ì ‘ê·¼ ì§€ì •ìž publicì—ì„œ privateë¡œ ë°”ê¾¸ê¸°
 private:
 	string major;
 
 public:
 	Student(string n, int a, string m) : Person(n, a), major(m) {}
 
-	void show() { // ºÎ¸ð Å¬·¡½ºÀÇ public ¸â¹ö ÇÔ¼ö Á¢±Ù
+	void show() { // ë¶€ëª¨ í´ëž˜ìŠ¤ì˜ public ë©¤ë²„ í•¨ìˆ˜ ì ‘ê·¼
 		introduce();
 	}
 	void study() {
-		cout << name << " ÇÐ»ýÀÌ " << major << " Àü°ø °øºÎ ÁßÀÔ´Ï´Ù." << endl;
+		cout << name << " í•™ìƒì´ " << major << " ì „ê³µ ê³µë¶€ ì¤‘ìž…ë‹ˆë‹¤." << endl;
 	}
 };
 
 int main() {
-	Student s("È«±æµ¿", 21, "ÄÄÇ»ÅÍ°øÇÐ");
-	s.show();   // ºÎ¸ð Å¬·¡½º ÇÔ¼ö »ç¿ë
-	s.study();       // ÀÚ½Ä Å¬·¡½º ÇÔ¼ö »ç¿ë
+	Student s("í™ê¸¸ë™", 21, "ì»´í“¨í„°ê³µí•™");
+	s.show();   // ë¶€ëª¨ í´ëž˜ìŠ¤ í•¨ìˆ˜ ì‚¬ìš©
+	s.study();       // ìžì‹ í´ëž˜ìŠ¤ í•¨ìˆ˜ ì‚¬ìš©
 	return 0;
-}// protected¶û private´Â Â÷ÀÌÁ¡ÀÌ?
- // protected´Â ÀÚ½Ä Å¬·¡½º¿¡¼­ Á¢±Ù °¡´É, private´Â ÀÚ½Ä Å¬·¡½º¿¡¼­ Á¢±Ù ºÒ°¡
+}// protectedëž‘ privateëŠ” ì°¨ì´ì ì´?
+ // protectedëŠ” ìžì‹ í´ëž˜ìŠ¤ì—ì„œ ì ‘ê·¼ ê°€ëŠ¥, privateëŠ” ìžì‹ í´ëž˜ìŠ¤ì—ì„œ ì ‘ê·¼ ë¶ˆê°€
 */
 /*
-class Animal { // ºÎ¸ð Å¬·¡½º
+class Animal { // ë¶€ëª¨ í´ëž˜ìŠ¤
 public:
-	virtual void speak() {  // virtual - °¡»ó ÇÔ¼ö ¼±¾ð 
-		cout << "µ¿¹°ÀÌ ¼Ò¸®¸¦ ³À´Ï´Ù." << endl; 
+	virtual void speak() {  // virtual - ê°€ìƒ í•¨ìˆ˜ ì„ ì–¸ 
+		cout << "ë™ë¬¼ì´ ì†Œë¦¬ë¥¼ ëƒ…ë‹ˆë‹¤." << endl; 
 	}
 };
 
-class Dog : public Animal { // ÀÚ½Ä Å¬·¡½º
+class Dog : public Animal { // ìžì‹ í´ëž˜ìŠ¤
 public:
-	void speak() override { //  override - ºÎ¸ðÀÇ virtual ÇÔ¼ö¸¦ ÀçÁ¤ÀÇ
-		cout << "¸Û¸Û!" << endl;
+	void speak() override { //  override - ë¶€ëª¨ì˜ virtual í•¨ìˆ˜ë¥¼ ìž¬ì •ì˜
+		cout << "ë©ë©!" << endl;
 	}
 };
 
 class Cat : public Animal {
 public:
-	void speak() override { //  override - ºÎ¸ðÀÇ virtual ÇÔ¼ö¸¦ ÀçÁ¤ÀÇ
-		cout << "¾ß¿Ë!" << endl;
+	void speak() override { //  override - ë¶€ëª¨ì˜ virtual í•¨ìˆ˜ë¥¼ ìž¬ì •ì˜
+		cout << "ì•¼ì˜¹!" << endl;
 	}
 };
 
@@ -228,9 +228,9 @@ int main() {
 	Dog a2;
 	Cat a3;
 
-	a1.speak(); // Animal speak() È£Ãâ - "µ¿¹°ÀÌ ¼Ò¸®¸¦ ³À´Ï´Ù."
-	a2.speak(); // Dog speak() È£Ãâ - "¸Û¸Û!"
-	a3.speak(); // Cat speak() È£Ãâ - "¾ß¿Ë!"
+	a1.speak(); // Animal speak() í˜¸ì¶œ - "ë™ë¬¼ì´ ì†Œë¦¬ë¥¼ ëƒ…ë‹ˆë‹¤."
+	a2.speak(); // Dog speak() í˜¸ì¶œ - "ë©ë©!"
+	a3.speak(); // Cat speak() í˜¸ì¶œ - "ì•¼ì˜¹!"
 
 	return 0;
 }
@@ -239,22 +239,22 @@ int main() {
 /*
 class Animal {
 public:
-	virtual void speak() {  // virtual - °¡»ó ÇÔ¼ö ¼±¾ð 
-		cout << "µ¿¹°ÀÌ ¼Ò¸®¸¦ ³À´Ï´Ù." << endl;
+	virtual void speak() {  // virtual - ê°€ìƒ í•¨ìˆ˜ ì„ ì–¸ 
+		cout << "ë™ë¬¼ì´ ì†Œë¦¬ë¥¼ ëƒ…ë‹ˆë‹¤." << endl;
 	}
 };
 
 class Dog : public Animal {
 public:
-	void speak() override { //  override - ºÎ¸ðÀÇ virtual ÇÔ¼ö¸¦ ÀçÁ¤ÀÇ
-		cout << "¸Û¸Û!" << endl;
+	void speak() override { //  override - ë¶€ëª¨ì˜ virtual í•¨ìˆ˜ë¥¼ ìž¬ì •ì˜
+		cout << "ë©ë©!" << endl;
 	}
 };
 
 class Cat : public Animal {
 public:
-	void speak() override { //  override - ºÎ¸ðÀÇ virtual ÇÔ¼ö¸¦ ÀçÁ¤ÀÇ
-		cout << "¾ß¿Ë!" << endl;
+	void speak() override { //  override - ë¶€ëª¨ì˜ virtual í•¨ìˆ˜ë¥¼ ìž¬ì •ì˜
+		cout << "ì•¼ì˜¹!" << endl;
 	}
 };
 
@@ -264,15 +264,15 @@ int main() {
 	Dog a2;
 	Cat a3;
 
-	a1.speak(); // Animal speak() È£Ãâ - "µ¿¹°ÀÌ ¼Ò¸®¸¦ ³À´Ï´Ù."
-	a2.speak(); // Dog speak() È£Ãâ - "¸Û¸Û!"
-	a3.speak(); // Cat speak() È£Ãâ - "¾ß¿Ë!"
+	a1.speak(); // Animal speak() í˜¸ì¶œ - "ë™ë¬¼ì´ ì†Œë¦¬ë¥¼ ëƒ…ë‹ˆë‹¤."
+	a2.speak(); // Dog speak() í˜¸ì¶œ - "ë©ë©!"
+	a3.speak(); // Cat speak() í˜¸ì¶œ - "ì•¼ì˜¹!"
 
 	Dog b;
-	Animal a = b;   // a´Â Animal °´Ã¼, b´Â Dog Å¸ÀÔÀÇ °´Ã¼ 
+	Animal a = b;   // aëŠ” Animal ê°ì²´, bëŠ” Dog íƒ€ìž…ì˜ ê°ì²´ 
 
-	a.speak();  // AnimalÀÇ speak() È£ÃâµÊ
-	b.speak();  // DogÀÇ speak() È£ÃâµÊ
+	a.speak();  // Animalì˜ speak() í˜¸ì¶œë¨
+	b.speak();  // Dogì˜ speak() í˜¸ì¶œë¨
 
 	return 0;
 }*/
